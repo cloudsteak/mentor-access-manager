@@ -52,4 +52,4 @@ jobs:
           app-name: 'mentor-access-manager'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9AB25E1A11234C8789C803DDCFEF5BC0 }}
-          package: ./build
+          package: .
