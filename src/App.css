@@ -11,12 +11,17 @@
 }
 
 .pageHeader {
-  color: #5737A1;
-  background: rgba(255, 255, 255 0.4) !important;
+  color: #341779;
+  background-color: rgba(255, 255, 255 0.4) !important;
   border-radius: 5px;
   position: absolute;
   top: 120px;
+  left: 0px;
+  text-align: center;
   justify-content: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.5em;
 }
 
 .form-container{
@@ -24,13 +29,18 @@
   border-radius: 5px;
   position: absolute;
   top: 250px;
+  left: 0px;
+  width: 100%;
+  justify-content: left;
+  text-align: left;
+  color: #341779;
 }
 
 .btn {
-  border: solid 1.5px whitesmoke;
+  border: solid 1.5px #341779;
   border-radius: 20px;
   background-color: transparent;
-  color: whitesmoke;
+  color: #341779;
   font-size: 18px;
   padding: 10px;
   margin-top: 20px;
@@ -46,8 +56,8 @@
 }
 
 .btn:hover {
-  color: #5c84d5;
-  background-color: whitesmoke;
+  color: whitesmoke;
+  background-color: #341779;
 }
 
 @media (prefers-reduced-motion: no-preference) {}
