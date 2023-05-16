@@ -6,9 +6,27 @@
   height: 100px;
   pointer-events: none;
   border-radius: 10px;
+  position: absolute;
+  top: 10px;
 }
 
-.btn{
+.pageHeader {
+  color: #5737A1;
+  background: rgba(255, 255, 255 0.4) !important;
+  border-radius: 5px;
+  position: absolute;
+  top: 120px;
+  justify-content: center;
+}
+
+.form-container{
+  background-color: rgba(255, 255, 255 0.4) !important;
+  border-radius: 5px;
+  position: absolute;
+  top: 250px;
+}
+
+.btn {
   border: solid 1.5px whitesmoke;
   border-radius: 20px;
   background-color: transparent;
@@ -18,26 +36,24 @@
   margin-top: 20px;
 }
 
-.fields{
+.fields {
   height: 25px;
   border-radius: 5px;
 }
 
-.form-row{
+.form-row {
   padding-top: 10px;
 }
 
-.btn:hover{
+.btn:hover {
   color: #5c84d5;
   background-color: whitesmoke;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  
-}
+@media (prefers-reduced-motion: no-preference) {}
 
 .App-header {
-  background-color: #5c84d5;
+  /* background-color: #5c84d5;*/
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,9 +71,10 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 
- 
+
 }

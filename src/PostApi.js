@@ -48,30 +48,32 @@ class PostApi extends React.Component {
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <br /><br />
-                        <h3>Azure 6 hetes képzés - hozzáférés igénylő</h3><br />
+                        <h3 class="pageHeader">Azure 6 hetes képzés <br />(hozzáférés igénylő)</h3>
+                        <div class="form-container">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Teljes név :</label>
                                 <input type="text" class="form-control fields" name="userfullname" onChange={this.handleInputChange} />
                             </div>
                         </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Email cím :</label>
-                                <input type="text" class="form-control fields" name="emailaddress" onChange={this.handleInputChange} />
+                        
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Email cím :</label>
+                                    <input type="text" class="form-control fields" name="emailaddress" onChange={this.handleInputChange} />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Biztonsági szó :</label>
-                                <input type="password" class="form-control fields" name="passphrase" onChange={this.handleInputChange} />
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Biztonsági szó :</label>
+                                    <input type="password" class="form-control fields" name="passphrase" onChange={this.handleInputChange} />
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn" onClick={() => this.submit()}>Igény küldése</button>
+                            <div class="form-row">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn" onClick={() => this.submit()}>Igény küldése</button>
+                                </div>
                             </div>
                         </div>
                     </div>
