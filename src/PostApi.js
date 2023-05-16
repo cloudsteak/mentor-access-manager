@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css';
-import App from './App';
 
 class PostApi extends React.Component {
 
@@ -50,23 +49,23 @@ class PostApi extends React.Component {
                         <br /><br />
                         <h3 class="pageHeader">Azure 6 hetes képzés <br />(hozzáférés igénylő)</h3>
                         <div class="form-container">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Teljes név :</label>
-                                <input type="text" class="form-control fields" name="userfullname" onChange={this.handleInputChange} />
-                            </div>
-                        </div>
-                        
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Email cím :</label>
+                                    <label>Teljes név: </label>
+                                    <input type="text" class="form-control fields" name="userfullname" onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Email cím: </label>
                                     <input type="text" class="form-control fields" name="emailaddress" onChange={this.handleInputChange} />
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Biztonsági szó :</label>
+                                    <label>Biztonsági szó: </label>
                                     <input type="password" class="form-control fields" name="passphrase" onChange={this.handleInputChange} />
                                 </div>
                             </div>
