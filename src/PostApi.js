@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 class PostApi extends React.Component {
 
     constructor() {
@@ -30,18 +31,50 @@ class PostApi extends React.Component {
     submit() {
         let url = "https://prod-44.northeurope.logic.azure.com:443/workflows/f3b208a84e5e433ebe7310b9d5fae93b/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=i2KgFhjZ7YOoFdkn3t8RRlk1lvd6rr7ho9AfOREIbj4";
         let data = this.state;
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            },
-            body: JSON.stringify(data)
-        }).then((result) => {
-            console.log(result);
-
-        })
+        if (data.emailaddress !== null && data.userfullname !== null && data.passphrase !== null) {
+            if (this.validateEmail(data.emailaddress)) {
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    },
+                    body: JSON.stringify(data)
+                }).then((result) => {
+                    console.log(result);
+                    this.notify("Igény elindításra került. Ha jóváhagyják, 24 órád van elfogadni azt.", "success")
+                })
+            } else {
+                this.notify("Email cím nem helyes. Add meg a valódi email címed.", "error")
+            }
+        } else {
+            this.notify("Egy vagy több mező nincs kitöltve", "error")
+        }
     }
+
+    validateEmail = (email) => {
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        if (!emailRegex.test(email)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+    notify = (message, severity) => {
+        switch (severity) {
+            case 'error':
+                toast.error(message)
+                break;
+            case 'success':
+                toast.success(message)
+                break;
+            default:
+                toast.info(message)
+                break;
+        }
+
+    };
 
     render() {
         const appWidth = window.innerWidth
@@ -50,7 +83,7 @@ class PostApi extends React.Component {
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <br /><br />
-                        <p class="pageHeader">Azure 6 hetes képzés <br />(hozzáférés igénylő)</p>
+                        <p class="pageHeader">Azure 6 hetes képzés <br />(Azure hozzáférés igénylés)</p>
                         <div class="form-container" style={appWidth < 500 ? { paddingLeft: "50px" } : { paddingLeft: "35%" }}>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -69,12 +102,25 @@ class PostApi extends React.Component {
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Biztonsági szó: </label>
-                                    <input type="password" style={appWidth < 500 ? { width: "163px" } : { width: "355px" }} class="form-control fields" name="passphrase" onChange={this.handleInputChange} />
+                                    <input type="password" style={appWidth < 500 ? { width: "163px" } : { width: "363px" }} class="form-control fields" name="passphrase" onChange={this.handleInputChange} />
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" style={appWidth < 500 ? { width: "250px", marginLeft: "8%" } : { width: "300px", marginLeft: "8%" }} class="btn" onClick={() => this.submit()}>Igény küldése</button>
+                                    <ToastContainer
+                                        position="top-center"
+                                        autoClose={5000}
+                                        hideProgressBar={false}
+                                        newestOnTop={false}
+                                        closeOnClick
+                                        rtl={false}
+                                        pauseOnFocusLoss
+                                        draggable
+                                        pauseOnHover
+                                        theme="light"
+                                    />
+                                <div class="gdpr">"Igény küldése" gombra kattintással elfogadod, hogy nevedet és email címedet a hozzáférés meglétének időtartamáig kezeljük és tároljuk. Ezen adatokat az oktató harmadik félnek nem adja ki.</div>
                                 </div>
                             </div>
                         </div>

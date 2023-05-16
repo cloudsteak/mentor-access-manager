@@ -9,6 +9,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+label{
+  font-size: 18px;
 }
 
 code {
