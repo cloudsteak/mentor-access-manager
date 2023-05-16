@@ -14,7 +14,7 @@ class PostApi extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    
+
 
     handleInputChange(event) {
         const target = event.target;
@@ -51,30 +51,30 @@ class PostApi extends React.Component {
                     <div class="col-md-6 offset-md-3">
                         <br /><br />
                         <p class="pageHeader">Azure 6 hetes képzés <br />(hozzáférés igénylő)</p>
-                        <div class="form-container" style={appWidth < 500 ? { paddingLeft:"50px"} : { paddingLeft:"35%"}}>
+                        <div class="form-container" style={appWidth < 500 ? { paddingLeft: "50px" } : { paddingLeft: "35%" }}>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Teljes név: </label>
-                                    <input type="text" style={appWidth < 500 ? { width:"200px"} : { width:"400px"}} class="form-control fields" name="userfullname" onChange={this.handleInputChange} />
+                                    <input type="text" style={appWidth < 500 ? { width: "200px" } : { width: "400px" }} class="form-control fields" name="userfullname" onChange={this.handleInputChange} />
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Email cím: </label>
-                                    <input type="text" style={appWidth < 500 ? {width:"200px", marginLeft: "3px"} : {width:"400px", marginLeft: "3px"}} class="form-control fields" name="emailaddress" onChange={this.handleInputChange} />
+                                    <input type="text" style={appWidth < 500 ? { width: "200px", marginLeft: "3px" } : { width: "400px", marginLeft: "3px" }} class="form-control fields" name="emailaddress" onChange={this.handleInputChange} />
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Biztonsági szó: </label>
-                                    <input type="password" style={appWidth < 500 ? { width:"163px"} : { width:"355px"}} class="form-control fields" name="passphrase" onChange={this.handleInputChange} />
+                                    <input type="password" style={appWidth < 500 ? { width: "163px" } : { width: "355px" }} class="form-control fields" name="passphrase" onChange={this.handleInputChange} />
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit"   style={appWidth < 500 ? { width:"250px", marginLeft: "8%"} : { width:"300px", marginLeft: "8%"}} class="btn" onClick={() => this.submit()}>Igény küldése</button>
+                                    <button type="submit" style={appWidth < 500 ? { width: "250px", marginLeft: "8%" } : { width: "300px", marginLeft: "8%" }} class="btn" onClick={() => this.submit()}>Igény küldése</button>
                                 </div>
                             </div>
                         </div>
