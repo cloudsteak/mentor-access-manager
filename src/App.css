@@ -3,11 +3,12 @@
 }
 
 .App-logo {
-  height: 100px;
+  height: 125px;
   pointer-events: none;
   border-radius: 10px;
   position: absolute;
   top: 10px;
+  left: 46%;
 }
 
 .pageHeader {
@@ -38,11 +39,12 @@
 
 .gdpr{
   padding-top: 20px;
-  max-width: 500px;
   word-wrap: normal;
   font-weight: 600;
   font-size: 13px;
-  text-align: justify;
+  text-align: center;
+  color: rgb(168, 0, 0);
+  line-height: 1.5em;
 }
 
 .btn {

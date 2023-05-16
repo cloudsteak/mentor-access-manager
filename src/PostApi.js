@@ -2,6 +2,9 @@ import React from 'react'
 import './App.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+
 class PostApi extends React.Component {
 
     constructor() {
@@ -107,7 +110,7 @@ class PostApi extends React.Component {
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" style={appWidth < 500 ? { width: "250px", marginLeft: "8%" } : { width: "300px", marginLeft: "8%" }} class="btn" onClick={() => this.submit()}>Igény küldése</button>
+                                    <button type="submit" style={appWidth < 500 ? { width: "250px", marginLeft: "8%" } : { width: "300px", marginLeft: "5%" }} class="btn" onClick={() => this.submit()}>Igény küldése</button>
                                     <ToastContainer
                                         position="top-center"
                                         autoClose={5000}
@@ -120,7 +123,7 @@ class PostApi extends React.Component {
                                         pauseOnHover
                                         theme="light"
                                     />
-                                <div class="gdpr">"Igény küldése" gombra kattintással elfogadod, hogy nevedet és email címedet a hozzáférés meglétének időtartamáig kezeljük és tároljuk. Ezen adatokat az oktató harmadik félnek nem adja ki.</div>
+                                <div class="gdpr" style={appWidth < 500 ? { width: "310px" } : { width: "500px" }}><FontAwesomeIcon icon={faExclamationTriangle} size="3x" /><br/>"Igény küldése" gombra kattintással elfogadod, hogy nevedet és email címedet a hozzáférés meglétének időtartamáig az oktató kezeli és tárolja, az Azure Active Directory-ban. Ezen adatokat az oktató harmadik félnek nem adja ki.</div>
                                 </div>
                             </div>
                         </div>
