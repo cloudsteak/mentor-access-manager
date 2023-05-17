@@ -45,6 +45,9 @@ class PostApi extends React.Component {
                 }).then((result) => {
                     console.log(result);
                     this.notify("Igény elindításra került. Ha jóváhagyják, 24 órád van elfogadni azt. (Ha nem találod a levelet, kérlek ellenőrizd a levélszemét mappát is.)", "success")
+                    this.sleep(5000).then(r => {
+                        window.location.reload(false);
+                    })
                 })
             } else {
                 this.notify("Email cím nem helyes. Add meg a valódi email címed.", "error")
@@ -52,6 +55,10 @@ class PostApi extends React.Component {
         } else {
             this.notify("Egy vagy több mező nincs kitöltve", "error")
         }
+    }
+
+    sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
 
     validateEmail = (email) => {
@@ -122,7 +129,7 @@ class PostApi extends React.Component {
                                         pauseOnHover
                                         theme="light"
                                     />
-                                <div class="gdpr" style={appWidth < 500 ? { width: "310px" } : { width: "500px" }}><FontAwesomeIcon icon={faExclamationTriangle} size="3x" /><br/>"Igény küldése" gombra kattintással elfogadod, hogy nevedet és email címedet a hozzáférés meglétének időtartamáig az oktató kezeli és tárolja, az Azure Active Directory-ban. Ezen adatokat az oktató harmadik félnek nem adja ki.</div>
+                                    <div class="gdpr" style={appWidth < 500 ? { width: "310px" } : { width: "500px" }}><FontAwesomeIcon icon={faExclamationTriangle} size="3x" /><br />"Igény küldése" gombra kattintással elfogadod, hogy nevedet és email címedet a hozzáférés meglétének időtartamáig az oktató kezeli és tárolja, az Azure Active Directory-ban. Ezen adatokat az oktató harmadik félnek nem adja ki.</div>
                                 </div>
                             </div>
                         </div>
