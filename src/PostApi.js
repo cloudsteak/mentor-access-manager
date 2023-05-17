@@ -129,7 +129,9 @@ class PostApi extends React.Component {
                                         pauseOnHover
                                         theme="light"
                                     />
-                                    <div class="gdpr" style={appWidth < 500 ? { width: "310px" } : { width: "500px" }}><FontAwesomeIcon icon={faExclamationTriangle} size="3x" /><br />"Igény küldése" gombra kattintással elfogadod, hogy nevedet és email címedet a hozzáférés meglétének időtartamáig az oktató kezeli és tárolja, az Azure Active Directory-ban. Ezen adatokat az oktató harmadik félnek nem adja ki.</div>
+                                    <div class="gdpr" style={appWidth < 500 ? { width: "310px" } : { width: "500px" }}><FontAwesomeIcon icon={faExclamationTriangle} size="3x" /><br />"Igény küldése" gombra kattintással elfogadod, hogy nevedet és email címedet a hozzáférés meglétének időtartamáig az oktató kezeli és tárolja, az Azure Active Directory-ban. Ezen adatokat az oktató harmadik félnek nem adja ki.
+                                    <div class="docs"><a href='https://github.com/cloudsteak/mentor-klub-azure' target='_blank'>Hasznos dokumentumok</a> | <a href='https://github.com/cloudsteak/mentor-klub-azure/issues' target='_blank'>Hiba bejelentés</a> | <a href='https://portal.azure.com' target='_blank'>Azure Portál</a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
