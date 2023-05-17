@@ -44,7 +44,7 @@ class PostApi extends React.Component {
                     body: JSON.stringify(data)
                 }).then((result) => {
                     console.log(result);
-                    this.notify("Igény elindításra került. Ha jóváhagyják, 24 órád van elfogadni azt.", "success")
+                    this.notify("Igény elindításra került. Ha jóváhagyják, 24 órád van elfogadni azt. (Ha nem találod a levelet, kérlek ellenőrizd a levélszemét mappát is.)", "success")
                 })
             } else {
                 this.notify("Email cím nem helyes. Add meg a valódi email címed.", "error")

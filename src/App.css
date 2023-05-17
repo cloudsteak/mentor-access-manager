@@ -48,6 +48,11 @@ td {
   left: 40%;
 }
 
+
+.Toastify__toast-body {
+  font-size: 16px !important;
+} 
+
 .form-container {
   background-color: rgba(255, 255, 255 0.4) !important;
   border-radius: 5px;
