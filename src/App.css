@@ -48,7 +48,7 @@ td {
   left: 40%;
 }
 
-/* 2023.05.22 előtt zárva */
+/* 2023.05.22 előtt zárva 
 input{
   pointer-events: none;
 }
@@ -59,7 +59,7 @@ input{
 }
 .btn{
   display: none !important;
-}
+}*/
 /* 2023.05.22 előtt zárva */
 
 .docs{
