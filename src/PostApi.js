@@ -90,7 +90,7 @@ class PostApi extends React.Component {
         const appWidth = window.innerWidth
         return (
             <div>
-                <p class="pageSubHeader">(Azure 6 hetes képzés 2023.05.22.)</p>
+                <p class="pageSubHeader">(Azure 7 hetes képzés 2023.)</p>
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <div class="form-container" style={appWidth < 500 ? { paddingLeft: "50px" } : { paddingLeft: "35%" }}>
