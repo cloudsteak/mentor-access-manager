@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 class PostApi extends React.Component {
   constructor() {
@@ -92,7 +93,7 @@ class PostApi extends React.Component {
   };
 
   render() {
-    const appWidth = window.innerWidth;
+    // const appWidth = window.innerWidth;
     return (
       <div>
         {/* <p class="pageSubHeader">(Mentor Klub - Azure képzés 2025.)</p> */}
