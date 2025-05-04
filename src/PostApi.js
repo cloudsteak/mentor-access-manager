@@ -13,9 +13,48 @@ class PostApi extends React.Component {
       userfullname: null,
       emailaddress: null,
       passphrase: null,
+      countdown: "", // Visszaszámláló szöveg
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.startCountdown();
+  }
+
+  startCountdown() {
+    const targetDate = new Date("2025-08-15T00:00:00");
+    this.updateCountdown(targetDate); // első frissítés
+    this.interval = setInterval(() => {
+      this.updateCountdown(targetDate);
+    }, 1000);
+  }
+
+  updateCountdown(targetDate) {
+    const now = new Date();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+      clearInterval(this.interval);
+      this.setState({ countdown: "A rendszer frissítése elindult." });
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    this.setState({
+      countdown: `${days} nap, ${hours} óra, ${minutes} perc, ${seconds} másodperc van hátra a váltásig.`,
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   handleInputChange(event) {
@@ -99,15 +138,37 @@ class PostApi extends React.Component {
         {/* <p class="pageSubHeader">(Mentor Klub - Azure képzés 2025.)</p> */}
         <div class="row">
           <div class="col-md-6 offset-md-3">
-          <div class="notification-box">
-            <h3>Figyelem, gyakorlók! Egy kis frissítés az űrben… vagyis a Cloud-ban!</h3>
+            <div class="notification-box">
+              <h3>
+                Figyelem, gyakorlók! Egy kis frissítés az űrben… vagyis a
+                Cloud-ban!
+              </h3>
 
-            <p><strong>Hamarosan azonban új korszak kezdődik a gyakorlásban</strong> – kényelmesebb, biztonságosabb és izgalmasabb megoldással jövünk! Mert fejlődni, változni és megújulni mindig érdemes.</p>
+              <p>
+                <strong>
+                  Hamarosan azonban új korszak kezdődik a gyakorlásban
+                </strong>{" "}
+                – kényelmesebb, biztonságosabb és izgalmasabb megoldással
+                jövünk! Mert fejlődni, változni és megújulni mindig érdemes.
+              </p>
 
-            <p><strong>Mit jelent ez nektek?</strong><br />
-            Ez az oldal hamarosan megszűnik, és helyette egy új rendszerben, modern és automatizált módon indíthatjátok majd el a gyakorlókörnyezeteteket. Már javában dolgozunk rajta – néha az AI is besegít – szeretettel, kóddal és egy kis varázslattal.</p>
+              <p>
+                <strong>Mit jelent ez nektek?</strong>
+                <br />
+                Ez az oldal hamarosan megszűnik, és helyette egy új rendszerben,
+                modern és automatizált módon indíthatjátok majd el a
+                gyakorlókörnyezeteteket. Már javában dolgozunk rajta – néha az
+                AI is besegít – szeretettel, kóddal és egy kis varázslattal.
+              </p>
 
-            <p>Köszönjük a türelmeteket, és maradjatok velünk – hiszen az új rendszer is nektek készül, hogy még hatékonyabban tudjatok gyakorolni, tanulni és fejlődni! 🚀</p>
+              <p>
+                Köszönjük a türelmeteket, és maradjatok velünk – hiszen az új
+                rendszer is nektek készül, hogy még hatékonyabban tudjatok
+                gyakorolni, tanulni és fejlődni! 🚀
+              </p>
+              <p class="countdown">
+                {this.state.countdown}
+              </p>
             </div>
 
             {/* <div class="form-container" style={appWidth < 500 ? { paddingLeft: "50px" } : { paddingLeft: "35%" }}>
@@ -153,29 +214,21 @@ class PostApi extends React.Component {
                             </div>
                         </div> */}
             <div class="docs">
+              {" "}
               <a
+                href="https://cloudmentor.hu"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Cloud Mentor - Cloud hírek és tudás
+              </a>{" "}
+              | <a
                 href="https://github.com/cloudsteak/mentor-klub-azure"
                 rel="noreferrer"
                 target="_blank"
               >
-                Hasznos információk
+                Példa kódok a GitHub-on
               </a>{" "}
-              |{" "}
-              <a
-                href="https://github.com/cloudsteak/mentor-klub-cloud/issues/new/choose"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Hiba bejelentés
-              </a>{" "}
-              |{" "}
-              <a
-                href="https://portal.azure.com"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Azure Portál
-              </a>
             </div>
           </div>
         </div>
