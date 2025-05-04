@@ -1,99 +1,115 @@
-import React from 'react'
-import './App.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
+import "./App.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 class PostApi extends React.Component {
-
-    constructor() {
-        super();
-        this.state = {
-            userfullname: null,
-            emailaddress: null,
-            passphrase: null,
-        }
-
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
-
-
-
-    handleInputChange(event) {
-        const target = event.target;
-        var value = target.value;
-        const name = target.name;
-
-        this.setState({
-            [name]: value
-        });
-
-    }
-
-    submit() {
-        let url = "https://prod-44.northeurope.logic.azure.com:443/workflows/f3b208a84e5e433ebe7310b9d5fae93b/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=i2KgFhjZ7YOoFdkn3t8RRlk1lvd6rr7ho9AfOREIbj4";
-        let data = this.state;
-        if (data.emailaddress !== null && data.userfullname !== null && data.passphrase !== null) {
-            if (this.validateEmail(data.emailaddress)) {
-                fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    },
-                    body: JSON.stringify(data)
-                }).then((result) => {
-                    console.log(result);
-                    this.notify("Igény elindításra került. Ha jóváhagyják, 24 órád van elfogadni azt. (Ha nem találod a levelet, kérlek ellenőrizd a levélszemét mappát is.)", "success")
-                    this.sleep(5000).then(r => {
-                        window.location.reload(false);
-                    })
-                })
-            } else {
-                this.notify("Email cím nem helyes. Add meg a valódi email címed.", "error")
-            }
-        } else {
-            this.notify("Egy vagy több mező nincs kitöltve", "error")
-        }
-    }
-
-    sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds))
-    }
-
-    validateEmail = (email) => {
-        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-        if (!emailRegex.test(email)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-
-    notify = (message, severity) => {
-        switch (severity) {
-            case 'error':
-                toast.error(message)
-                break;
-            case 'success':
-                toast.success(message)
-                break;
-            default:
-                toast.info(message)
-                break;
-        }
-
+  constructor() {
+    super();
+    this.state = {
+      userfullname: null,
+      emailaddress: null,
+      passphrase: null,
     };
 
-    render() {
-        const appWidth = window.innerWidth
-        return (
-            <div>
-                <p class="pageSubHeader">(Mentor Klub - Azure képzés 2025.)</p>
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                        <div class="form-container" style={appWidth < 500 ? { paddingLeft: "50px" } : { paddingLeft: "35%" }}>
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    var value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  submit() {
+    let url =
+      "https://prod-44.northeurope.logic.azure.com:443/workflows/f3b208a84e5e433ebe7310b9d5fae93b/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=i2KgFhjZ7YOoFdkn3t8RRlk1lvd6rr7ho9AfOREIbj4";
+    let data = this.state;
+    if (
+      data.emailaddress !== null &&
+      data.userfullname !== null &&
+      data.passphrase !== null
+    ) {
+      if (this.validateEmail(data.emailaddress)) {
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify(data),
+        }).then((result) => {
+          console.log(result);
+          this.notify(
+            "Igény elindításra került. Ha jóváhagyják, 24 órád van elfogadni azt. (Ha nem találod a levelet, kérlek ellenőrizd a levélszemét mappát is.)",
+            "success"
+          );
+          this.sleep(5000).then((r) => {
+            window.location.reload(false);
+          });
+        });
+      } else {
+        this.notify(
+          "Email cím nem helyes. Add meg a valódi email címed.",
+          "error"
+        );
+      }
+    } else {
+      this.notify("Egy vagy több mező nincs kitöltve", "error");
+    }
+  }
+
+  sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+  };
+
+  validateEmail = (email) => {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    if (!emailRegex.test(email)) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  notify = (message, severity) => {
+    switch (severity) {
+      case "error":
+        toast.error(message);
+        break;
+      case "success":
+        toast.success(message);
+        break;
+      default:
+        toast.info(message);
+        break;
+    }
+  };
+
+  render() {
+    const appWidth = window.innerWidth;
+    return (
+      <div>
+        {/* <p class="pageSubHeader">(Mentor Klub - Azure képzés 2025.)</p> */}
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+          <div class="notification-box">
+            <h3>Figyelem, gyakorlók! Egy kis frissítés az űrben… vagyis a Cloud-ban!</h3>
+
+            <p><strong>Hamarosan azonban új korszak kezdődik a gyakorlásban</strong> – kényelmesebb, biztonságosabb és izgalmasabb megoldással jövünk! Mert fejlődni, változni és megújulni mindig érdemes.</p>
+
+            <p><strong>Mit jelent ez nektek?</strong><br />
+            Ez az oldal hamarosan megszűnik, és helyette egy új rendszerben, modern és automatizált módon indíthatjátok majd el a gyakorlókörnyezeteteket. Már javában dolgozunk rajta – néha az AI is besegít – szeretettel, kóddal és egy kis varázslattal.</p>
+
+            <p>Köszönjük a türelmeteket, és maradjatok velünk – hiszen az új rendszer is nektek készül, hogy még hatékonyabban tudjatok gyakorolni, tanulni és fejlődni! 🚀</p>
+            </div>
+
+            {/* <div class="form-container" style={appWidth < 500 ? { paddingLeft: "50px" } : { paddingLeft: "35%" }}>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Teljes név: </label>
@@ -134,12 +150,37 @@ class PostApi extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div> */}
+            <div class="docs">
+              <a
+                href="https://github.com/cloudsteak/mentor-klub-azure"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Hasznos információk
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://github.com/cloudsteak/mentor-klub-cloud/issues/new/choose"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Hiba bejelentés
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://portal.azure.com"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Azure Portál
+              </a>
             </div>
-        )
-    }
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default PostApi;
