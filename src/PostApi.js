@@ -146,7 +146,7 @@ class PostApi extends React.Component {
 
               <p>
                 <strong>
-                  Hamarosan azonban új korszak kezdődik a gyakorlásban
+                  Hamarosan új korszak kezdődik a gyakorlásban
                 </strong>{" "}
                 – kényelmesebb, biztonságosabb és izgalmasabb megoldással
                 jövünk! Mert fejlődni, változni és megújulni mindig érdemes.
