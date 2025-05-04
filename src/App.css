@@ -62,10 +62,15 @@ input{
 }*/
 /* 2023.05.22 előtt zárva */
 
+.py-6{
+  margin-top: 150px !important;
+}
+
 .notification-box{
   padding-top: 1em;
   padding-left: 4%;
   padding-right: 4%;
+  padding-bottom: 1em;
   color: black;
   font-size: 19px;
   background-color: rgba(255, 255, 255, 0.7) !important;
@@ -74,8 +79,17 @@ input{
   
 }
 
+.countdown{
+  text-align: center !important;
+  font-weight: 700;
+  color: #1399c2;
+  padding: 10px;
+  border: 1px solid #1399c2;
+  border-radius: 10px;
+}
 .docs{
   padding-top: 2%;
+  font-size: 16px !important;
 }
 
 .Toastify__toast-body {
