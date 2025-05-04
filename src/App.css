@@ -62,6 +62,18 @@ input{
 }*/
 /* 2023.05.22 előtt zárva */
 
+.notification-box{
+  padding-top: 1em;
+  padding-left: 4%;
+  padding-right: 4%;
+  color: black;
+  font-size: 19px;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  text-align: justify;
+  line-height: 2em;
+  
+}
+
 .docs{
   padding-top: 2%;
 }
