@@ -24,7 +24,7 @@ class PostApi extends React.Component {
   }
 
   startCountdown() {
-    const targetDate = new Date("2025-08-15T00:00:00");
+    const targetDate = new Date("2025-09-10T00:00:00");
     this.updateCountdown(targetDate); // első frissítés
     this.interval = setInterval(() => {
       this.updateCountdown(targetDate);
